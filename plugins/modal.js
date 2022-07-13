@@ -68,6 +68,9 @@ $.modal = function (options) {
             setTimeout(() => {              // для того чтобы класс закрытия присутствовал во время анимации 
                 $modal.classList.remove('hide');
                 closing = false;
+                if(typeof options.onClose === 'function') {
+                    options.onClose()
+                }
             }, ANIMATION_SPEED);
         },
     }
